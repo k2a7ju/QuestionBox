@@ -5,8 +5,8 @@ services:
     volumes:
       - "./docker/mysql:/var/lib/mysql"
     environment:
-      - MYSQL_DATABASE=sample
-      - MYSQL_USER=user
+      - MYSQL_DATABASE=question_box
+      - MYSQL_USER=question_box
       - MYSQL_PASSWORD=password
       - MYSQL_ROOT_PASSWORD=root
     ports:
