@@ -3,11 +3,24 @@ services:
   mysql:
     image: mysql:5.7
     volumes:
-      - "./mysql:/var/lib/mysql"
+      - "./docker/mysql:/var/lib/mysql"
     environment:
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=question_box
+      - MYSQL_USER=question_box
+      - MYSQL_PASSWORD=m3EZSbGD
     ports:
       - "3306:3306"
+
+  php:
+    build: ./docker/php 
+    volumes:
+      - ".:/var/www/html"
+      - "./docker/php/default.conf:/etc/apache2/sites-available/000-default.conf"
+    ports:
+      - 8000:80
+    links:
+      - mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin

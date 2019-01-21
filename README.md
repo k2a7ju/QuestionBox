@@ -18,3 +18,12 @@ $ docker-compose stop
 ```
 $ mysql -uroot -P3306 -h127.0.0.1 -p
 ```
+## アプリケーション
+```
+$ docker-compose exec --user 1000 php bash
+```
+docker内のbashで
+```
+$ composer install
+```
+`http://localhost:8000/`へアクセス
