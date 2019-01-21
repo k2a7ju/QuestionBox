@@ -16,7 +16,6 @@ services:
     build: ./docker/php 
     volumes:
       - ".:/var/www/html"
-      - "./docker/php/default.conf:/etc/apache2/sites-available/000-default.conf"
     ports:
       - 8000:80
     links:
