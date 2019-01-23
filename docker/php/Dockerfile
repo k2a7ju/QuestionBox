@@ -1,5 +1,7 @@
 FROM php:7.0-apache
 
+ENV COMPOSER_ALLOW_SUPERUSER 1
+
 #composer install
 WORKDIR /usr/bin
 RUN curl -s http://getcomposer.org/installer | php && ln -s /usr/bin/composer.phar /usr/bin/composer
@@ -14,6 +16,7 @@ RUN apt-get update \
     && apt-get install -y libpq-dev \
     && docker-php-ext-install pdo_mysql pdo_pgsql
 RUN pecl install xdebug
+RUN docker-php-ext-enable xdebug
 
 #apache
 COPY ./default.conf /etc/apache2/sites-available/000-default.conf
