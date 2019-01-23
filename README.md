@@ -19,11 +19,15 @@ $ docker-compose stop
 $ mysql -uroot -P3306 -h127.0.0.1 -p
 ```
 ## アプリケーション
+### Dockerコンテナ内にssh
 ```
-$ docker-compose exec --user 1000 php bash
+$ docker-compose exec php bash
 ```
-docker内のbashで
+### 初期設定（Dockerコンテナ内で）
 ```
 $ composer install
+$ cp .env.example .env
+$ php artisan key:generate
+$ php artisan migrate
 ```
 `http://localhost:8000/`へアクセス
