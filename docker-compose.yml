@@ -33,3 +33,13 @@ services:
       - mysql
     ports:
        - 8080:80
+
+  node:
+    build: ./docker/node
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
+    command: /bin/sh
